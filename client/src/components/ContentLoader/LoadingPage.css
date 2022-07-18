@@ -1,0 +1,21 @@
+.loadingPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.loadingPage > h1{
+    font-weight: bold;
+    font-size: xx-large;
+    animation-name: blackToBlue;
+    color: var(--blue);
+    animation-duration: 0.5s;
+}
+
+@keyframes blackToBlue {
+    from {color: black;}
+    to {color: var(--blue)}
+}

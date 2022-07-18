@@ -1,0 +1,12 @@
+.messagingPage{
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    scroll-behavior: none;
+}
+
+.conversationList {
+    width: 300px;
+    height: 100%;
+    border-right: 1px solid lightgray;
+}

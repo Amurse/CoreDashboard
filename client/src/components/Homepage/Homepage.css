@@ -1,0 +1,30 @@
+.homepageContent{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    padding-top: 62px;
+}
+
+.homepageLeft{
+    min-width: 50px; 
+}
+
+.homepageLeft2{
+    transition: margin 500ms ;
+}
+
+
+
+.homepageMiddle{
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+}
+
+
+.virtualSpaceContainer{
+    width: 100%;
+    height: 100%;
+}
+
+
