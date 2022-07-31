@@ -7,7 +7,7 @@ import './Homepage.css';
 import {useLocation, useParams} from 'react-router-dom';
 import {selectUserExists, setUserData} from '../../redux/features/User/UserSlice';
 
-import axios from '../../helpers/axiosUser';
+import axios from '../../helpers/axios/axiosUser';
 import MessagingPage from '../MessagePage/MessagingPage';
 
 const Homepage = () => {

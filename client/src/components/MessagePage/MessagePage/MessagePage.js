@@ -6,10 +6,10 @@ import {BiArrowBack} from 'react-icons/bi';
 import {Input, Popover} from 'antd';
 import {SendOutlined, SmileOutlined} from '@ant-design/icons';
 import {selectUser} from '../../../redux/features/User/UserSlice';
-import axios from '../../../helpers/axiosChat';
+import axios from '../../../helpers/axios/axiosChat';
 import {pusher} from '../../../pusher/features/PusherChat';
 import FloatMessageArea from './FloatMessageArea';
-import {appMessage} from '../../../helpers/helpers';
+import {appMessage} from '../../../helpers/functions/general';
 import Picker from 'emoji-picker-react';
 
 const MessagePage = () => {

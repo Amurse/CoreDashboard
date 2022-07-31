@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import {Input} from 'antd';
 import {SearchOutlined} from '@ant-design/icons';
-import {contactButtonClicked} from '../../helpers/helpers';
+import {contactButtonClicked} from '../../helpers/functions/chat';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectUser} from '../../redux/features/User/UserSlice';
 

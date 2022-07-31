@@ -3,21 +3,24 @@ import './App.css';
 import 'antd/dist/antd.css';
 import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from './helpers/axiosUser'
+import axios from './helpers/axios/axiosUser'
 import { selectUser, selectUserLoaded, setUserData } from './redux/features/User/UserSlice';
 
 import LoadingPage from './components/ContentLoader/LoadingPage';
 
 // import Terms from './components/PolicyPages/Terms';
 // import Cookies from './components/PolicyPages/Cookies';
-import NotFound from './NotFound';
+import NotFound from './helpers/pages/NotFound';
 import { setScreenSize } from './redux/features/App/AppStatus'
 import { Grid } from 'antd';
 import LandingPage from './components/LandingPage/LandingPage';
 import Homepage from './components/Homepage/Homepage';
 import Pusher from './pusher/features/PusherChat';
 import Web3 from 'web3'
-import SessionFull from './helpers/SessionFull';
+import SessionFull from './helpers/pages/SessionFull';
+import axiosChat from './helpers/axios/axiosChat'
+import BusinessIndex from './business/BusinessIndex';
+import ChatWindow from './testComponents/Chat';
 
 const { useBreakpoint } = Grid;
 
@@ -63,12 +66,17 @@ function App() {
 
   const fullSessions = () => {
     if (location.path !== '/sessionsFull') history.push('/sessionsFull');
+  };
+  
+  const wakeUpNeededAPIs = () => {
+    axiosChat.get('/wakeUp')
   }
 
 
   let validate = async () => {
+    wakeUpNeededAPIs();
     let sessions = (await axios.post('/getSessions')).data;
-    if (sessions.total > 9) fullSessions()
+    if (sessions.total > 100) fullSessions()
     let address = await connectMetamaskSilently();
 
     address && await axios.post('/loginValidate', {address}, { withCredentials: true, credentials: 'include' })
@@ -102,9 +110,10 @@ function App() {
       {userLoaded && 
         <Switch>
         
-        <Route path="/sessionsFull"><SessionFull /></Route>
+          <Route path="/sessionsFull"><SessionFull /></Route>
+          <Route path="/business"><BusinessIndex /></Route>
+          <Route path="/chatWindow"><ChatWindow/></Route>
         <Route exact path="/">{user._id ? <Homepage/> : <LandingPage />}</Route>
-       
         <Route component={NotFound} />
         </Switch>}
       {

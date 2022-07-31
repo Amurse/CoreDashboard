@@ -48,6 +48,8 @@
 
 .headerMiddle{
     flex: 1;
+    display: flex;
+    justify-content: right;
 }
 
 .headerMiddleOptions{
@@ -56,6 +58,7 @@
     padding-left: 16px;
     align-items: center;
     color: black;
-    justify-content: right;
+    min-width: 300px;
+    justify-content: space-evenly;
 }
 

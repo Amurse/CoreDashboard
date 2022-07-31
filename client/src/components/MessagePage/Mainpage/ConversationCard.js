@@ -2,7 +2,7 @@ import {UserOutlined} from '@ant-design/icons';
 import {Avatar} from 'antd';
 import React, { useEffect, useState } from 'react';
 import {useDispatch} from 'react-redux';
-import { formattedWalletAddress } from '../../../helpers/helpers';
+import { formattedWalletAddress } from '../../../helpers/functions/general';
 import {setFloatMessage} from '../../../redux/features/Messages/Messages';
 import {ENDPOINT_MEDIA_DOWNLOAD} from '../../../helpers/routes';
 

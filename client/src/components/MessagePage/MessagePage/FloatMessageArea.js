@@ -6,7 +6,7 @@ import './FloatMessageArea.css'
 import {Avatar} from 'antd';
 import {ENDPOINT_MEDIA_DOWNLOAD} from '../../../helpers/routes';
 import { UserOutlined } from '@ant-design/icons';
-import { formattedWalletAddress } from '../../../helpers/helpers';
+import { formattedWalletAddress } from '../../../helpers/functions/general';
 
 const FloatMessageArea = () => {
   const floatArea = useSelector(selectMessages);
@@ -75,7 +75,6 @@ const FloatMessageArea = () => {
     }
     
 
-    console.log(targetInfo)
   return (
     <div className='floatMessageArea flex1 flex flexCol'>
       <div className='floatMessageAreaHeader'></div>

@@ -4,12 +4,12 @@ import {Link, useHistory} from 'react-router-dom';
 import {selectUser, setUserData} from '../../redux/features/User/UserSlice';
 import {useSelector, useDispatch} from 'react-redux';
 import {Button} from 'antd';
-import axios from '../../helpers/axiosUser';
+import axios from '../../helpers/axios/axiosUser';
 import {selectAppStatus, setAppStatus} from '../../redux/features/App/AppStatus';
 import logo from '../../images/landingPage/AMURSE.png';
 import {FiMenu} from 'react-icons/fi';
 import Web3 from 'web3';
-import {appError, appMessage, disconnectUser, formattedWalletAddress} from '../../helpers/helpers';
+import {appError, appMessage, disconnectUser, formattedWalletAddress} from '../../helpers/functions/general';
 
 
 
@@ -82,6 +82,7 @@ const Header = () => {
   const headerOptions = () => {
     return (
       <div className="headerMiddleOptions">
+         {!user.address && <h3 type='primary' className='hover' onClick={()=>history.push('/business')}>Business</h3>}
         {!user.address && <Button type='primary' onClick={connectMetamask}>Connect Wallet</Button>}
         {user.address && <Button type='primary' onClick={disconnectUser}>{formattedWalletAddress(user.address)}</Button>}
       </div>

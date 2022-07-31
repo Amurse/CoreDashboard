@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { appError } from './helpers';
+import { appError } from '../functions/general';
 
 const BASE_URL = process.env.NODE_ENV === 'production'? 'https://chat-dot-amurse.uk.r.appspot.com' : 'http://localhost:5001'
 

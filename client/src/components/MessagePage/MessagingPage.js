@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectUser} from '../../redux/features/User/UserSlice';
-import axiosChat from '../../helpers/axiosChat';
+import axiosChat from '../../helpers/axios/axiosChat';
 import './MessagingPage.css';
 import {setAppStatus} from '../../redux/features/App/AppStatus';
 import {selectMessages, setFloatMessage} from '../../redux/features/Messages/Messages';
