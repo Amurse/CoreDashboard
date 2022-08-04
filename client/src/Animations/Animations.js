@@ -1,6 +1,7 @@
-import blockchainAnimation from '../../images/animations/blockchain.json';
-import loadingAnimation from '../../images/animations/loading.json';
-import toggleButtonAnimation from '../../images/animations/toggle_button.json';
+import blockchainAnimation from '../images/animations/blockchain.json';
+import loadingAnimation from '../images/animations/loading.json';
+import toggleButtonAnimation from '../images/animations/toggle_button.json';
+
 
 const repeatingOptions = (animation) => {
   return (

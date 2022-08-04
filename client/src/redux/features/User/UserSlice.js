@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
+
 const _initialState = {
     loaded: false, //by default, user is not loaded
     workspaces: [],
@@ -16,8 +18,9 @@ export const userSlice = createSlice({
                 state[key] = action.payload[key]
             })    
         },
-        logoutUser: (state) => {
-            state = _initialState;
+      logoutUser: (state) => {
+          const keys = ['address', 'userId', 'username', '_id']
+          keys.forEach((key) => state[key] ='')
         },
         addUserWorkspace: (state = {}, action) => {
             const { workspace } = action.payload;

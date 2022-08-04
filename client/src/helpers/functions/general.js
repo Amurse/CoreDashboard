@@ -13,9 +13,11 @@ export const appError = (msg) => {
   return message.error({content: msg ,className: 'messageAntd'})
 }
 
-export const disconnectUser = async () => {
+export const disconnectUser = async (redirect, dispatch, logoutUser) => {
   await axios.post('/logoutUser');
-  window.location.href = "/"
+  dispatch(logoutUser({}));
+  console.log('redirect is', redirect)
+  if (redirect) window.location.href = redirect;
 }
 
 export const formattedWalletAddress = (address) => {

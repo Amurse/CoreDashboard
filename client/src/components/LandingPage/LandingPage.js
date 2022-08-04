@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import Lottie from 'react-lottie';
 import './LandingPage.css';
 import {Zoom} from 'react-reveal';
-import {blockchain} from '../Animations/Animations';
+import {blockchain} from '../../Animations/Animations';
 
 const LandingPage = () => {
   const appStatus = useSelector(selectAppStatus);

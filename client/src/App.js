@@ -91,6 +91,7 @@ function App() {
       }).catch(err => console.log(err));
     dispatch(setUserData({loaded: true}))
   }
+  
 
   const checkWallet = () => {
     setTimeout(() => {
@@ -113,7 +114,7 @@ function App() {
           <Route path="/sessionsFull"><SessionFull /></Route>
           <Route path="/business"><BusinessIndex /></Route>
           <Route path="/chatWindow"><ChatWindow/></Route>
-        <Route exact path="/">{user._id ? <Homepage/> : <LandingPage />}</Route>
+        <Route exact path="/">{user.address ? <Homepage/> : <LandingPage />}</Route>
         <Route component={NotFound} />
         </Switch>}
       {
