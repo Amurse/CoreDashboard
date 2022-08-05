@@ -3023,10 +3023,10 @@ amdefine@>=0.0.4:
   resolved "https://registry.npmjs.org/amdefine/-/amdefine-1.0.1.tgz"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
-amurse-chatwindow-basic@^0.0.27:
-  version "0.0.27"
-  resolved "https://registry.yarnpkg.com/amurse-chatwindow-basic/-/amurse-chatwindow-basic-0.0.27.tgz#e94163fd9b76d0bdbf31c8deadc40cd171b0027b"
-  integrity sha512-+5nTve+BH+OS6y7L4ZMdxtUlvnHTb65w+FMha/YDPjka9vQ19jtJgazIq2T5uzIoXwXgBJt4llwz2E5SBjLHmg==
+amurse-chatwindow-basic@^0.0.29:
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/amurse-chatwindow-basic/-/amurse-chatwindow-basic-0.0.29.tgz#970f41ca3558ca820e201fb537487f71f5d0719c"
+  integrity sha512-tADX88fp2ROcsQNApl2yOsT5WhMDpVtMrRffTqENXKVcj7R6jxEHNgh5x/XeuTkMbyNbJnhXCYkBDjwhKRGh6g==
   dependencies:
     "@ant-design/icons" "^4.7.0"
     "@babel/runtime" "^7.18.9"

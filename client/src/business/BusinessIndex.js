@@ -19,7 +19,7 @@ const BusinessPage = () => {
     document.title = 'Amurse';
   }, []);
 
-
+  
   return (
     <div className="landingPage">
       <Header />
@@ -42,7 +42,7 @@ const BusinessPage = () => {
             height: '100%', width:'100%'
           }}></div>
         </div>}
-        <ChatWindow receiverAddress="0xCB2F82eB852D4746e744168DC5D5B2a49b524A3c"/>
+        <ChatWindow receiverToken={process.env.REACT_APP_AMURSE_ACCESS_TOKEN} />
       </div>
     </div>
   );

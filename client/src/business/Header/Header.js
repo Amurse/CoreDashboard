@@ -8,6 +8,7 @@ import {selectAppStatus, setAppStatus} from '../../redux/features/App/AppStatus'
 import logo from '../../images/landingPage/AMURSE.png';
 import {FiMenu} from 'react-icons/fi';
 import ConnectWallet from '../../web3/connectWallet/ConnectWallet';
+import { appMessage } from '../../helpers/functions/general';
 
 
 
@@ -30,7 +31,7 @@ const Header = () => {
   const headerOptions = () => {
     return (
       <div className="headerMiddleOptions">
-        { <h3 type='primary' className='hover margin16' onClick={() => history.push('/business')}>Documentation</h3>}
+        { <h3 type='primary' className='hover margin16' onClick={() => appMessage('Coming Soon')}>Documentation</h3>}
         <ConnectWallet/>
       </div>
     );

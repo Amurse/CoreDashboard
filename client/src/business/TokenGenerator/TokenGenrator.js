@@ -23,6 +23,7 @@ const TokenGenrator = () => {
 
   useEffect(() => {
     if (user.address) getRecentAPIToken();
+    // eslint-disable-next-line
   }, [user.address]);
 
   const createAPIToken = () => {
