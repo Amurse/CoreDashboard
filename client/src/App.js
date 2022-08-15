@@ -21,6 +21,7 @@ import SessionFull from './helpers/pages/SessionFull';
 import axiosChat from './helpers/axios/axiosChat'
 import BusinessIndex from './business/BusinessIndex';
 import ChatWindow from './testComponents/Chat';
+import axiosAccess from './helpers/axios/axiosAccess';
 
 const { useBreakpoint } = Grid;
 
@@ -69,14 +70,15 @@ function App() {
   };
   
   const wakeUpNeededAPIs = () => {
-    axiosChat.get('/wakeUp')
+    axiosChat.get('/wakeUp');
+    axiosAccess.get('/wakeUp');
   }
 
 
   let validate = async () => {
     wakeUpNeededAPIs();
     let sessions = (await axios.post('/getSessions')).data;
-    if (sessions.total > 100) fullSessions()
+    if (sessions.total > 300) fullSessions()
     let address = await connectMetamaskSilently();
 
     address && await axios.post('/loginValidate', {address}, { withCredentials: true, credentials: 'include' })

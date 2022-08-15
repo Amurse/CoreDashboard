@@ -1,6 +1,6 @@
 {
   "name": "realtorpanel",
-  "version": "1.0.32",
+  "version": "1.0.35",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

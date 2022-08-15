@@ -1,6 +1,6 @@
 import React from 'react';
 // import './Header.css';
-import {Link, useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {selectUser,} from '../../redux/features/User/UserSlice';
 import {useSelector, useDispatch} from 'react-redux';
 
@@ -13,7 +13,6 @@ import { appMessage } from '../../helpers/functions/general';
 
 
 const Header = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
 
   const user = useSelector(selectUser);
