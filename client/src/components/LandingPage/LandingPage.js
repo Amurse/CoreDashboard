@@ -25,13 +25,13 @@ const LandingPage = () => {
 
       <div className='landingPageContent headerMargin'>
         <div className='landingPageContentMsg'>
-          <h2 className='blue'>Hey! Glad you're here!</h2>
-          <h1 style={{fontSize: '72px'}} className='blue bold'>@Amurse</h1>
+          {/* <h2 className='blue bold'>___________</h2> */}
+          <h1 style={{fontSize: '72px'}} className='blue bold'>Amurse</h1>
          
           <Zoom>
             <div>
-              <h1>Communication ◾ Functionality ◾ Simplicity</h1>
-              <h2 className='gray'>The Web3 Human Hub</h2>
+              <h1>Wallet-Wallet Communication API</h1>
+              <h2 className='gray'>Communication ◾ Functionality ◾ Simplicity</h2>
               {/* <Button disabled loading={false} style={{marginTop: '32px'}} type='primary' size='large' onClick={createUser}>Create Workspace</Button> */}
             </div>
           </Zoom>
