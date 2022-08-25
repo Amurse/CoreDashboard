@@ -28,7 +28,7 @@ const MessagingPage = () => {
     }, [user.address]);
 
     const unselectedConversation = () => (
-        <div className='unselectedConvo width100 height100 bold flex flexCol align-center justifyCenter unselectable'>
+        <div className='unselectedConvo width100 height100 bold flex flexCol alignCenter justifyCenter unselectable'>
             <div className='blue textBig'>Select a conversation</div>
             <div className='blue textMed'>Or start a new one...</div>
         </div>

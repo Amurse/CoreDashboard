@@ -27,10 +27,12 @@ export const connectSilentlyMetamask = async (setUserData, errorHandler) => {
       if (err) return console.log(err)
       accounts = result;
     });
-    if (!networkId || !accounts[0]) {
-      errorHandler && errorHandler('Please review network/connected account');
-      return;
-    };
+    if (!networkId || !accounts[0]) return;
+    if (networkId && networkId !== 1) {
+      errorHandler && errorHandler('Please review network');
+      return
+    }
+    
     setUserData && setUserData({ address: accounts[0] });
     return accounts[0];
   }

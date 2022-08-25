@@ -6,22 +6,24 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store';
 import { Provider } from 'react-redux';
-import * as Sentry from '@sentry/react'
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (window.location.hostname === 'amurse.com') {
+      window.location.assign("https://amurse-9ac0aa.webflow.io/")
+    }
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [location.pathname]);
 
   return null;
 }
-
-process.env.NODE_ENV === 'production' && Sentry.init({
-  dsn: "https://93bfae1716204dd9857c53e73d020903@o951747.ingest.sentry.io/5900823"
-})
 
 ReactDOM.render(
   <React.StrictMode>

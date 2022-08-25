@@ -7,6 +7,8 @@ require('dotenv').config()
 
 const root = path.join(__dirname, 'client', 'build')
 app.use(express.static(root));
+app.set('trust proxy', 1);
+
 app.get("*", (req, res) => {
     res.set("Cache-Control", "no-cache, no-store, must-revalidate, max-age=0"); // HTTP 1.1.
     res.header("Cache-Control", "no-cache, no-store, must-revalidate, max-age=0");
