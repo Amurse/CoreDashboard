@@ -1,7 +1,6 @@
-import { UserOutlined } from '@ant-design/icons';
-import { Avatar } from 'antd';
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { selectConversations } from '../../../redux/features/Messages/Messages'
 
 import ConversationCard from './ConversationCard';

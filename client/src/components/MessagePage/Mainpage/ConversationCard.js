@@ -19,13 +19,13 @@ const ConversationCard = ({convo, index}) => {
   const displayName = formattedWalletAddress(convoTarget);
 
     return (
-        <div className="floatConvocardItem unselectable" onClick={e=>dispatch(setFloatMessage({ address: convoTarget.address, page: 'messagepage', convo: {...convo, index} }))}>
+        <div className="floatConvocardItem unselectable hover" onClick={e=>dispatch(setFloatMessage({ address: convoTarget.address, page: 'messagepage', convo: {...convo, index} }))}>
             <div className="flex width100 hover">
                 <div className="convoCardAvatar">
                     <Avatar style={{ backgroundColor: 'white' }} size={32} icon={<UserOutlined style={{ color: 'black'}}/>} src={convoTarget && convoTarget.profilePicture && ENDPOINT_MEDIA_DOWNLOAD+"t_"+convoTarget.profilePicture}/>
                 </div>
                 <div className="floatConvocardContent hover width100">
-                    <div className="flex justify-spaced align-center">
+                    <div className="flex justifySpaced align-center">
                         <span className='textMed text500'>{displayName}</span>
                         <span className="textMed gray">{month[date.getMonth()]} {date.getDate() }</span>
                     </div>

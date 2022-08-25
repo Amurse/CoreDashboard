@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { selectUser } from '../../redux/features/User/UserSlice'
 import axiosAccess from '../../helpers/axios/axiosAccess';
 import { appError } from 'amurse-chatwindow-basic/dist/helpers';
+
 const TokenGenrator = () => {
   const user = useSelector(selectUser);
   const [token, setToken] = useState('');
@@ -11,7 +12,7 @@ const TokenGenrator = () => {
 
 
   const getRecentAPIToken = async () => {
-    await axiosAccess.post('/getToken', { address: user.address })
+    await axiosAccess.post('/getToken', { address: user.address, signature: user.signature })
       .then(res => {
         let token = res.data;
         token && setToken(token.token);
@@ -22,9 +23,10 @@ const TokenGenrator = () => {
   }
 
   useEffect(() => {
-    if (user.address) getRecentAPIToken();
+    //in order to get run the function, either a session must exist or there must be a signature in user object
+    if (user._id) getRecentAPIToken();
     // eslint-disable-next-line
-  }, [user.address]);
+  }, [user._id]);
 
   const createAPIToken = () => {
     if (token) return;
@@ -46,7 +48,7 @@ const TokenGenrator = () => {
   )
 
   return (
-    <div className='flex flexCol align-center justify-center'>
+    <div className='flex flexCol align-center justifyCenter'>
       {!token && !loading && <Button onClick={createAPIToken} type='primary'>Generate Token For Chat API</Button>}
       {token && tokenDisplayer()}
     </div>

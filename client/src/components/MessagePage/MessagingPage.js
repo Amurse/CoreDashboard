@@ -16,7 +16,7 @@ const MessagingPage = () => {
 
     
     const getConversations = () => {
-        axiosChat.post('/getConversations', { address: user.address, userId: user._id })
+        axiosChat.post('/getConversations', { address: user.address, userId: user._id, signature: user.signature })
             .then(res => dispatch(setFloatMessage({ conversations: res.data })))
             .catch(err => console.log(err.data));
     }
@@ -28,7 +28,7 @@ const MessagingPage = () => {
     }, [user.address]);
 
     const unselectedConversation = () => (
-        <div className='unselectedConvo width100 height100 bold flex flexCol align-center justify-center unselectable'>
+        <div className='unselectedConvo width100 height100 bold flex flexCol align-center justifyCenter unselectable'>
             <div className='blue textBig'>Select a conversation</div>
             <div className='blue textMed'>Or start a new one...</div>
         </div>

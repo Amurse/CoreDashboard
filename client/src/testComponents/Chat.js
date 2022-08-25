@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Chat= () => {
   return (
-    <div className='flex flexCol align-center justify-center'>
+    <div className='flex flexCol align-center justifyCenter'>
       <Header />
   
       <h1 className='blue'>Chat Window Demo Page</h1>

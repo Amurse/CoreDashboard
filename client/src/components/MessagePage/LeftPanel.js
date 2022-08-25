@@ -18,7 +18,7 @@ const LeftPanel = () => {
 
   const sendMessage = async () => {
 
-    contactButtonClicked({ senderAddress: user.address, receiverAddress: address }, dispatch);
+    contactButtonClicked({ senderAddress: user.address, receiverAddress: address }, dispatch, user);
     setAddress('');
   };
 

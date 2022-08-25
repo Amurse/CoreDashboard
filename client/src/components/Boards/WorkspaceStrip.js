@@ -6,7 +6,7 @@ import './WorkspaceStrip.css'
 import { selectActiveLocation, selectLeftPanelActive, setActiveLocation, setAppStatus } from '../../redux/features/App/AppStatus';
 import { message } from 'antd';
 import { selectUser, setUserData } from '../../redux/features/User/UserSlice';
-import logo from '../../images/landingPage/AMURSE.png';
+import logo from '../../images/landingPage/amurseLogo.png';
 import { appMessage, openInNewTab } from '../../helpers/helpers';
 import { SiDiscord } from 'react-icons/si';
 import { IoMdInformationCircle } from 'react-icons/io';

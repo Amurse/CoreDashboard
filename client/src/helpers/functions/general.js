@@ -16,7 +16,6 @@ export const appError = (msg) => {
 export const disconnectUser = async (redirect, dispatch, logoutUser) => {
   await axios.post('/logoutUser');
   dispatch(logoutUser({}));
-  console.log('redirect is', redirect)
   if (redirect) window.location.href = redirect;
 }
 

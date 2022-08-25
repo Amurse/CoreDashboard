@@ -80,13 +80,16 @@ code {
 }
 
 
-
 .fullWidth{
   width: 100% !important;
 }
 
-.blueAvatar{
-  background-color: var(--blue)
+.maxWidth {
+  max-width: 1200px;
+}
+
+.borderRadius {
+  border-radius: 12px;
 }
 
 .ant-scrolling-effect{
@@ -94,7 +97,7 @@ code {
 }
 
 .headerMargin{
-  margin-top: 64px;
+  margin-top: 90px;
 }
 
 .footerPadding{
@@ -141,6 +144,14 @@ code {
   background-color: white;
 }
 
+.blueBackground {
+  background-color: var(--blue);
+}
+
+.hover {
+  cursor: pointer !important;
+}
+
 .unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -178,12 +189,36 @@ code {
   padding-left: 12px;
 }
 
+.padHorMed {
+  padding: 0px 24px;
+}
+
+.padHorLarge {
+  padding: 0px 32px;
+}
+
+.padHorHuge {
+  padding: 0px 64px;
+}
+
 .padding0{
   padding: 0px !important;
 }
 
 .padding8{
   padding: 8px;
+}
+
+.marVerMed {
+  margin: 24px 0px;
+}
+
+.marVerHuge {
+  margin: 64px 0px;
+}
+
+.marVerSection {
+  margin: 120px 0px;
 }
 
 .margin4{
@@ -214,22 +249,35 @@ code {
   flex: 1;
 }
 
-.justify-center{
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.flexWrapReverse {
+  flex-wrap: wrap-reverse;
+}
+
+.justifyCenter{
   justify-content: center;
 }
 
-.justify-spaced{
+.justifySpaced{
   justify-content: space-between;
 }
 
-.justify-evenly {
+.justifyEvenly {
   justify-content: space-evenly;
 }
+
+.justifyItemMargin {
+  margin: 0px 12px;
+}
+
 .justify-end{
   justify-content: end;
 }
 
-.align-center{
+.alignCenter{
   align-items: center;
 }
 
@@ -260,6 +308,30 @@ code {
 
 .height100{
   height: 100%;
+}
+
+.heightHeader {
+  height: 90px;
+}
+
+.animation {
+  transition: all 1s ease-in-out;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.fixedTop {
+  top: 0
+}
+
+.fixedLeft {
+  left: 0;
+}
+
+.higherIndex {
+  z-index: 1;
 }
 
 .companyLogoGold{

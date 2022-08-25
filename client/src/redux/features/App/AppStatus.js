@@ -23,12 +23,13 @@ export const userSlice = createSlice({
             switch (action.payload.screenSize) {
                 case 'sm':
                 case 'xs':
-                case 'md':
+                
                     state.mobileView = true
                     state.smallScreen = true;
                     break;
                 
                 case 'lg':
+                case 'md':
                     state.mobileView = false
                     state.smallScreen = true;
                     break;

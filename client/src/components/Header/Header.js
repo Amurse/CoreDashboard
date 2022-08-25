@@ -5,9 +5,9 @@ import {selectUser} from '../../redux/features/User/UserSlice';
 import {useSelector, useDispatch} from 'react-redux';
 
 import {selectAppStatus, setAppStatus} from '../../redux/features/App/AppStatus';
-import logo from '../../images/landingPage/AMURSE.png';
+import logo from '../../images/landingPage/amurseLogo.png';
 import {FiMenu} from 'react-icons/fi';
-import ConnectWallet from '../../web3/connectWallet/ConnectWallet';
+import ConnectWallet from '../../web3/ConnectWallet';
 
 
 

@@ -24,7 +24,7 @@ const MessagingPage = () => {
 
     
     const getConversations = () => {
-        axios.post('/api/convo/getConversations', { address: user.address })
+        axios.post('/api/convo/getConversations', { address: user.address, signature: user.signature })
             .then(res => dispatch(setFloatMessage({ conversations: res.data })))
             .catch(err => console.log(err.data));
     }
@@ -35,7 +35,7 @@ const MessagingPage = () => {
     }, [user.address]);
 
     const unselectedConversation = () => (
-        <div className='unselectedConvo width100 height100 bold flex flexCol align-center justify-center'>
+        <div className='unselectedConvo width100 height100 bold flex flexCol align-center justifyCenter'>
             <div className='blue textBig'>Select a conversation</div>
             <div className='blue textMed'>Or start a new one...</div>
         </div>

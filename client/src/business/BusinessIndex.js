@@ -5,7 +5,7 @@ import Header from './Header/Header';
 import ChatWindow from 'amurse-chatwindow-basic';
 
 
-import ConnectWallet from '../web3/connectWallet/ConnectWallet';
+import ConnectWallet from '../web3/ConnectWallet';
 import { selectUser } from '../redux/features/User/UserSlice';
 import TokenGenrator from './TokenGenerator/TokenGenrator';
 

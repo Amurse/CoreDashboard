@@ -23,6 +23,9 @@ import BusinessIndex from './business/BusinessIndex';
 import ChatWindow from './testComponents/Chat';
 import axiosAccess from './helpers/axios/axiosAccess';
 
+import { connectSilentlyMetamask } from './web3/ConnectWallet';
+import { appError } from 'amurse-chatwindow-basic/dist/helpers';
+
 const { useBreakpoint } = Grid;
 
 function App() {
@@ -30,7 +33,6 @@ function App() {
   const screens = useBreakpoint();
   const user = useSelector(selectUser);
   const userLoaded = useSelector(selectUserLoaded);
-  const ethereum = window.ethereum;
 
   //for screen size
   useEffect(() => {
@@ -46,21 +48,7 @@ function App() {
     
   }, [screens, dispatch]);
 
-  const connectMetamaskSilently = async () => {
-    if (window.ethereum) {
-      window.web3 = new Web3(ethereum);
-      const web3 = window.web3;
-      const networkId = await window.web3.eth.getChainId();
-      let accounts;
-      await web3.eth.getAccounts((err, result) => {
-        if (err) return console.log(err)
-        accounts = result;
-      });
-      if (!networkId || !accounts[0]) return null;
-      return accounts[0];
-    }
-    return null;
-  }
+  
 
   const history = useHistory();
   const location = useLocation();
@@ -79,15 +67,16 @@ function App() {
     wakeUpNeededAPIs();
     let sessions = (await axios.post('/getSessions')).data;
     if (sessions.total > 300) fullSessions()
-    let address = await connectMetamaskSilently();
+    let address = await connectSilentlyMetamask(setUserData, appError);
 
     address && await axios.post('/loginValidate', {address}, { withCredentials: true, credentials: 'include' })
       .then(res => {
-      if (!res.data) {
-        dispatch(setUserData({found: false}));
+       
+      if (res && !res.data) {
+        dispatch(setUserData({found: false, loaded: true}));
       }
-      else if (res.data) {
-        dispatch(setUserData({...res.data}))
+      else if (res && res.data) {
+        dispatch(setUserData({...res.data, loaded: true}))
       };
       
       }).catch(err => console.log(err));
@@ -110,14 +99,14 @@ function App() {
   return (
     <div className="app">
       {userLoaded && <Pusher />}
-      {userLoaded && 
+      {userLoaded &&
         <Switch>
-        
+          {/* <Route path="/testPath"><NewLandingPage /></Route> */}
           <Route path="/sessionsFull"><SessionFull /></Route>
           <Route path="/business"><BusinessIndex /></Route>
-          <Route path="/chatWindow"><ChatWindow/></Route>
-        <Route exact path="/">{user.address ? <Homepage/> : <LandingPage />}</Route>
-        <Route component={NotFound} />
+          <Route path="/chatWindow"><ChatWindow /></Route>
+          <Route exact path="/">{user._id ? <Homepage /> : <LandingPage />}</Route>
+          <Route component={NotFound} />
         </Switch>}
       {
         !userLoaded && <LoadingPage/>

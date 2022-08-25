@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './MainPage.css'
-
 import { Input } from 'antd'
 import { SendOutlined } from '@ant-design/icons'
-import { appError, appMessage, contactButtonClicked } from '../../../helpers/helpers';
-import web3 from 'web3';
+import { contactButtonClicked } from '../../../helpers/helpers';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectMessages, setFloatMessage } from '../../../redux/features/Messages/Messages';
 import { selectUser } from '../../../redux/features/User/UserSlice';
-import axios from '../../../axios';
 import Conversations from './Conversations';
 
 const MainPage = () => {
@@ -19,7 +15,7 @@ const MainPage = () => {
     // const floatMessage = useSelector(selectMessages)
     
     const sendMessage = async () => {
-        contactButtonClicked({ senderAddress: user.address, receiverAddress: address }, dispatch);
+        contactButtonClicked({ senderAddress: user.address, receiverAddress: address }, dispatch, user);
     }
 
     return (

@@ -18,7 +18,7 @@ const LeftPanel = () => {
     // const floatMessage = useSelector(selectMessages)
     
     const sendMessage = async () => {
-        contactButtonClicked({ senderAddress: user.address, receiverAddress: address }, dispatch);
+        contactButtonClicked({ senderAddress: user.address, receiverAddress: address }, dispatch, user);
     }
 
     return (
