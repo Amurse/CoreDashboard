@@ -1,6 +1,13 @@
 import { message } from "antd";
 import axios from '../axios/axiosUser';
 
+
+export const externalLinks = {
+  stripe: process.env.NODE_ENV === 'production' ? "https://buy.stripe.com/9AQdTi6AO0l53XWeUV" : " https://buy.stripe.com/test_28o9Dz5Xz6F77zG9AA",
+  calendlyJosh: "https://calendly.com/josh-baumann",
+  docs: "https://amurse.notion.site/amurse/AMURSE-DOCS-007ea171e82e420dbd5070b3680859fc"
+}
+
 export function openInNewTab(url) {
   window.open(url, '_blank');
 }

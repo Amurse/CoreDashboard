@@ -85,11 +85,11 @@ code {
 }
 
 .maxWidth {
-  max-width: 1200px;
+  max-width: 1600px;
 }
 
 .borderRadius {
-  border-radius: 12px;
+  border-radius: 12px !important;
 }
 
 .ant-scrolling-effect{
@@ -108,6 +108,10 @@ code {
   font-style: italic;
 }
 
+.textBigBig {
+  font-size: xx-large;
+}
+
 .textBig{
     font-size: x-large;
 }
@@ -116,8 +120,12 @@ code {
   font-size: medium;
 }
 
+.textHugeHuge{
+  font-size: 64px;
+}
+
 .textHuge{
-  font-size: xx-large;
+  font-size: 48px;
 }
 
 .text500{
@@ -189,16 +197,28 @@ code {
   padding-left: 12px;
 }
 
+.padVerHeader {
+  padding-top: 90px;
+}
+
+.padVerLarge {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
 .padHorMed {
-  padding: 0px 24px;
+  padding-right: 24px;
+  padding-left: 24px;
 }
 
 .padHorLarge {
-  padding: 0px 32px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .padHorHuge {
-  padding: 0px 64px;
+  padding-left: 64px;
+  padding-right: 64px;
 }
 
 .padding0{
@@ -209,16 +229,20 @@ code {
   padding: 8px;
 }
 
+.marVerSmall{
+  margin-top: 12px;
+}
+
 .marVerMed {
-  margin: 24px 0px;
+  margin-top: 24px;
 }
 
 .marVerHuge {
-  margin: 64px 0px;
+  margin-top: 64px;
 }
 
 .marVerSection {
-  margin: 120px 0px;
+  margin-top: 120px;
 }
 
 .margin4{
@@ -263,6 +287,10 @@ code {
 
 .justifySpaced{
   justify-content: space-between;
+}
+
+.justifyEnd{
+  justify-content: end;
 }
 
 .justifyEvenly {
@@ -334,6 +362,7 @@ code {
   z-index: 1;
 }
 
+
 .companyLogoGold{
   background: -webkit-linear-gradient(100deg,#f7d85c,#F1D66C, #C7B057  , rgb(126, 107, 0));
   -webkit-background-clip: text;
@@ -355,6 +384,10 @@ code {
 #businessPagePicture{
   background-image: url('./images/businessPage/friends.png');
   background-repeat: no-repeat;
+}
+
+.wordWrap {
+  word-break: break-all;
 }
 
 

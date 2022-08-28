@@ -20,11 +20,12 @@ import Web3 from 'web3'
 import SessionFull from './helpers/pages/SessionFull';
 import axiosChat from './helpers/axios/axiosChat'
 import BusinessIndex from './business/BusinessIndex';
-import ChatWindow from './testComponents/Chat';
 import axiosAccess from './helpers/axios/axiosAccess';
-
+import { appError } from './helpers/functions/general'
 import { connectSilentlyMetamask } from './web3/ConnectWallet';
-import { appError } from 'amurse-chatwindow-basic/dist/helpers';
+import NewLandingPage from './components/LandingPage/NewLandingPage';
+import ContactForm from './testComponents/ContactForm';
+import PaymentThanks from './components/PaymentThanks/PaymentThanks';
 
 const { useBreakpoint } = Grid;
 
@@ -101,11 +102,11 @@ function App() {
       {userLoaded && <Pusher />}
       {userLoaded &&
         <Switch>
-          {/* <Route path="/testPath"><NewLandingPage /></Route> */}
+          <Route path="/testPath"><PaymentThanks/></Route>
+          <Route path="/paymentConfirm"><PaymentThanks/></Route>
           <Route path="/sessionsFull"><SessionFull /></Route>
           <Route path="/business"><BusinessIndex /></Route>
-          <Route path="/chatWindow"><ChatWindow /></Route>
-          <Route exact path="/">{user._id ? <Homepage /> : <LandingPage />}</Route>
+          <Route exact path="/">{user._id ? <Homepage /> : <NewLandingPage />}</Route>
           <Route component={NotFound} />
         </Switch>}
       {

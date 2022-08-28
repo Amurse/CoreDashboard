@@ -10,6 +10,20 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@amurse/chatwindow@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@amurse/chatwindow/-/chatwindow-0.0.4.tgz#b704b8076ead91f2cca92feb8bea1b591df9e75b"
+  integrity sha512-w5SocuAuYX+gh4oa9BZgFLvYcvCOMjeNOkICOOgufAwhax+Hr+5bpP6rB86N8UNpo/KLUmJlCu6ZWZyAxNR74w==
+  dependencies:
+    "@ant-design/icons" "^4.7.0"
+    "@babel/runtime" "^7.18.9"
+    antd "^4.18.8"
+    axios "^0.26.0"
+    core-js "^3.23.2"
+    pusher-js "^7.0.6"
+    react-icons "^4.3.1"
+    web3 "^1.7.1"
+
 "@ant-design/colors@^6.0.0":
   version "6.0.0"
   resolved "https://registry.npmjs.org/@ant-design/colors/-/colors-6.0.0.tgz"
@@ -2872,6 +2886,11 @@
   resolved "https://registry.npmjs.org/@xtuc/long/-/long-4.2.2.tgz"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@zootools/waitlist-js@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@zootools/waitlist-js/-/waitlist-js-0.2.1.tgz#0dd1aa9b9cf13f09842ffd383141a89cc80901dc"
+  integrity sha512-R38D30K9riIPedAGqgHkG1jdWtxHcj4Lcn3vR69kmpEgbzIkAvgWeo7GUWJJh0lOTk/Gg0RFPVNXDeVntfWZEg==
+
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
   resolved "https://registry.npmjs.org/abab/-/abab-2.0.5.tgz"
@@ -3022,20 +3041,6 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.npmjs.org/amdefine/-/amdefine-1.0.1.tgz"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
-
-amurse-chatwindow-basic@^0.0.34:
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/amurse-chatwindow-basic/-/amurse-chatwindow-basic-0.0.34.tgz#406c210bde59638bd43d441234542e688320108e"
-  integrity sha512-5/OequzQdB4IcEgNuz2TcyijHHsMvtu/nQqKRxM9jts6yw7OpIwkmokG75bG3aKtNkmimHOhGJ2a5UyXwp7YVg==
-  dependencies:
-    "@ant-design/icons" "^4.7.0"
-    "@babel/runtime" "^7.18.9"
-    antd "^4.18.8"
-    axios "^0.26.0"
-    core-js "^3.23.2"
-    pusher-js "^7.0.6"
-    react-icons "^4.3.1"
-    web3 "^1.7.1"
 
 ansi-colors@^3.0.0:
   version "3.2.4"
@@ -4813,9 +4818,9 @@ core-js@2, core-js@^2.4.0:
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 core-js@^3.23.2:
-  version "3.24.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.24.1.tgz#cf7724d41724154010a6576b7b57d94c5d66e64f"
-  integrity sha512-0QTBSYSUZ6Gq21utGzkfITDylE8jWC9Ne1D2MrhvlsZBI1x39OdDIVbzSqtgMndIy6BlHxBXpMGqzZmnztg2rg==
+  version "3.25.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.0.tgz#be71d9e0dd648ffd70c44a7ec2319d039357eceb"
+  integrity sha512-CVU1xvJEfJGhyCpBrzzzU1kjCfgsGUxhEvwUV2e/cOedYWHdmluamx+knDnmhqALddMG16fZvIqvs9aijsHHaA==
 
 core-js@^3.6.5:
   version "3.21.1"

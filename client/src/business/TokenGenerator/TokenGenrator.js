@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { selectUser } from '../../redux/features/User/UserSlice'
 import axiosAccess from '../../helpers/axios/axiosAccess';
-import { appError } from 'amurse-chatwindow-basic/dist/helpers';
+import { appError } from '../../helpers/functions/general'
+import { signMessageMetamask } from '../../web3/SignMessage';
 
 const TokenGenrator = () => {
   const user = useSelector(selectUser);
@@ -12,12 +13,18 @@ const TokenGenrator = () => {
 
 
   const getRecentAPIToken = async () => {
+    
     await axiosAccess.post('/getToken', { address: user.address, signature: user.signature })
       .then(res => {
         let token = res.data;
         token && setToken(token.token);
-      }).catch(err => {
-        appError('Could not get token')
+      }).catch( async err => {
+        let signature = await signMessageMetamask('PLEASE VERIFY OWNERSHIP', user.address);
+        await axiosAccess.post('/getToken', { address: user.address, signature: signature })
+          .then(res => {
+            let token = res.data;
+            token && setToken(token.token);
+          }).catch(err => { appError('No signature provided')})
       });
     setLoading(false)
   }
@@ -43,13 +50,13 @@ const TokenGenrator = () => {
   const tokenDisplayer = () => (
     <div>
       <h2>Your API token: </h2>
-      <p>{token}</p>
+      <p className='flex flexWrap wordWrap'>{token}</p>
     </div>
   )
 
   return (
     <div className='flex flexCol align-center justifyCenter'>
-      {!token && !loading && <Button onClick={createAPIToken} type='primary'>Generate Token For Chat API</Button>}
+      {!token && !loading && <Button className='borderRadius' onClick={createAPIToken} type='primary'>Generate Token For Chat API</Button>}
       {token && tokenDisplayer()}
     </div>
   )

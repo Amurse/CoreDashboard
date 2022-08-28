@@ -13,12 +13,6 @@ export default function ScrollToTop() {
   const location = useLocation();
 
   useEffect(() => {
-    if (window.location.hostname === 'amurse.com') {
-      window.location.assign("https://amurse-9ac0aa.webflow.io/")
-    }
-  }, []);
-
-  useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 

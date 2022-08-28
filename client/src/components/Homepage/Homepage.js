@@ -9,6 +9,7 @@ import {selectUserExists, setUserData} from '../../redux/features/User/UserSlice
 
 import axios from '../../helpers/axios/axiosUser';
 import MessagingPage from '../MessagePage/MessagingPage';
+import NewHeader from '../Header/NewHeader';
 
 const Homepage = () => {
   const userExists = useSelector(selectUserExists);
@@ -49,7 +50,7 @@ const Homepage = () => {
   const toReturn = () => {
     return (
       <div className="width100">
-        <Header />
+        <NewHeader boxShadow={true}/>
         <div className='homepageContent'>
           {<MessagingPage />}
         </div>
