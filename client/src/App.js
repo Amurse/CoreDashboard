@@ -24,8 +24,10 @@ import axiosAccess from './helpers/axios/axiosAccess';
 import { appError } from './helpers/functions/general'
 import { connectSilentlyMetamask } from './web3/ConnectWallet';
 import NewLandingPage from './components/LandingPage/NewLandingPage';
-import ContactForm from './testComponents/ContactForm';
 import PaymentThanks from './components/PaymentThanks/PaymentThanks';
+import AdminPanel from './admin/AdminPanel';
+import { signMessageMetamask } from './web3/SignMessage';
+import AdminRoute from './components/Helpers/AdminRoute';
 
 const { useBreakpoint } = Grid;
 
@@ -65,13 +67,13 @@ function App() {
 
 
   let validate = async () => {
-    wakeUpNeededAPIs();
+    // wakeUpNeededAPIs();
     let sessions = (await axios.post('/getSessions')).data;
     if (sessions.total > 300) fullSessions()
     let address = await connectSilentlyMetamask(setUserData, appError);
 
     address && await axios.post('/loginValidate', {address}, { withCredentials: true, credentials: 'include' })
-      .then(res => {
+      .then(async res => {
        
       if (res && !res.data) {
         dispatch(setUserData({found: false, loaded: true}));
@@ -102,7 +104,7 @@ function App() {
       {userLoaded && <Pusher />}
       {userLoaded &&
         <Switch>
-          <Route path="/testPath"><PaymentThanks/></Route>
+          <AdminRoute path="/adminPanel" component={AdminPanel}></AdminRoute>
           <Route path="/paymentConfirm"><PaymentThanks/></Route>
           <Route path="/sessionsFull"><SessionFull /></Route>
           <Route path="/business"><BusinessIndex /></Route>

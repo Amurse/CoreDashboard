@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {selectAppStatus} from '../redux/features/App/AppStatus';
-import Header from './Header/Header';
-
+import friendPic from '../images/businessPage/friends.png';
 import ChatWindow from '@amurse/chatwindow';
 import ConnectWallet from '../web3/ConnectWallet';
 import { selectUser } from '../redux/features/User/UserSlice';
 import TokenGenrator from './TokenGenerator/TokenGenrator';
 import NewHeader from '../components/Header/NewHeader';
+import ImageImporter from '../components/Helpers/ImageImporter';
 
 const BusinessPage = () => {
 
@@ -21,9 +21,9 @@ const BusinessPage = () => {
 
   
   return (
-    <div className="width100">
+    <div className="width100 height100">
       <NewHeader/>
-      <div className='headerMargin flex flexWrapReverse width100' style={{height: '80vh'}}>
+      <div className='headerMargin flex justifyEvenly alignCenter flexWrapReverse width100' style={{ marginBottom: '180px'}}>
         <div className=' flex flexCol justifyCenter textCenter padHorMed alignCenter'> 
           <h1 className='blue'>Generate API Access Token</h1>
           <h3>Integrate Amurse API onto your website for an easy doorstep to your end users.</h3>
@@ -36,12 +36,11 @@ const BusinessPage = () => {
           <h4>*Chat window remains connected until browser is closed (beta).</h4>
 
         </div>
-        {!mobileView && <div className='landingMascot flex1'>
-          
-          <div id="businessPagePicture" style={{
-            height: '100%', width:'100%'
-          }}></div>
-        </div>}
+        <div >
+          {!mobileView && <ImageImporter source={friendPic}  scale maxWidth={600} />}
+
+        </div>
+        
         <ChatWindow receiverToken={process.env.REACT_APP_AMURSE_ACCESS_TOKEN} />
       </div>
     </div>

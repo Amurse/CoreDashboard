@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
-import Header from '../../components/Header/Header'
+import NewHeader from '../../components/Header/NewHeader';
 
 const NotFound = () => {
-    useEffect(() => {
-        document.title="404 - Realtor Panel"
-    }, [])
+   
+  
     return (
         <div>
-            <Header />
+            <NewHeader />
             <div
                 style={{marginTop: "200px"}}
             >

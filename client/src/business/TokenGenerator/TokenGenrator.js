@@ -1,9 +1,9 @@
 import { Button } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { selectUser } from '../../redux/features/User/UserSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectUser, setUserData } from '../../redux/features/User/UserSlice'
 import axiosAccess from '../../helpers/axios/axiosAccess';
-import { appError } from '../../helpers/functions/general'
+import { appError, verifyUser } from '../../helpers/functions/general'
 import { signMessageMetamask } from '../../web3/SignMessage';
 
 const TokenGenrator = () => {
@@ -11,6 +11,7 @@ const TokenGenrator = () => {
   const [token, setToken] = useState('');
   const [loading, setLoading] = useState(true);
 
+  const dispatch = useDispatch();
 
   const getRecentAPIToken = async () => {
     
@@ -18,32 +19,28 @@ const TokenGenrator = () => {
       .then(res => {
         let token = res.data;
         token && setToken(token.token);
-      }).catch( async err => {
-        let signature = await signMessageMetamask('PLEASE VERIFY OWNERSHIP', user.address);
-        await axiosAccess.post('/getToken', { address: user.address, signature: signature })
-          .then(res => {
-            let token = res.data;
-            token && setToken(token.token);
-          }).catch(err => { appError('No signature provided')})
-      });
+      }).catch(err => {});
     setLoading(false)
   }
 
   useEffect(() => {
     //in order to get run the function, either a session must exist or there must be a signature in user object
-    if (user._id) getRecentAPIToken();
+    if (user._id && user.signature) {
+      getRecentAPIToken();
+    } else if (user._id && !user.signature) {
+      verifyUser(dispatch, setUserData, user, user.address)
+    }
     // eslint-disable-next-line
-  }, [user._id]);
+  }, [user._id, user.signature]);
 
   const createAPIToken = () => {
     if (token) return;
     axiosAccess.post('/createToken', { address: user.address })
       .then(res => {
         const token = res.data;
-        console.log(token);
         setToken(token.token)
       }).catch(err => {
-      appError('Could not generate token')
+        appError('Address not whitelisted')
     })
   }
 

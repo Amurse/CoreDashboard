@@ -1,4 +1,5 @@
 import { message } from "antd";
+import { signMessageMetamask } from "../../web3/SignMessage";
 import axios from '../axios/axiosUser';
 
 
@@ -18,6 +19,12 @@ export const appMessage = (msg) => {
 
 export const appError = (msg) => {
   return message.error({content: msg ,className: 'messageAntd'})
+}
+
+export const verifyUser = async (dispatch, setUserData, user, address) => {
+  if (user.signature) return;
+  const signature = await signMessageMetamask('PLEASE VERIFY OWNERSHIP', address);
+  dispatch(setUserData({signature}))
 }
 
 export const disconnectUser = async (redirect, dispatch, logoutUser) => {

@@ -26,13 +26,13 @@ const NewHeader = ({boxShadow}) => {
       '
       style={{ boxShadow: boxShadow && '0px 0px 10px 2px gray'}}
     >
-      <div className='width100 maxWidth flex alignCenter'>
+      <div className='width100 flex alignCenter'>
         <div className='flex newHeaderLeft margin4'>
           {/* {mobileView && <BiMenu className='textLarge justifyItemMargin hover' style={{ fontSize:'xx-large'}} />} */}
           <ImageImporter redirectLink={'/'} mobileView={mobileView} enableHover></ImageImporter>
         </div>
         <div className='flex flex1 justify-end whiteBackground'>
-          <div className='flex justifySpaced alignCenter width100' style={{maxWidth: mobileView? '200px' : '400px'}}>
+          <div className='flex justifySpaced alignCenter width100' style={{ maxWidth: mobileView ? '200px' : '400px' }}>
             {!mobileView && user.address && <div className='flex alignCenter bold textMed hover padHorMed' onClick={()=>history.push('/business')}>API</div>}
             {<div className='flex alignCenter bold textMed hover padHorMed' onClick={()=>openInNewTab(externalLinks.docs)}>Docs</div>}
             {!mobileView && <div className='flex alignCenter bold textMed hover padHorMed'><ConnectWallet text={'Demo'}></ConnectWallet></div>}

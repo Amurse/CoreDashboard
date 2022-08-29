@@ -15,7 +15,7 @@ const MessagingPage = () => {
     const dispatch = useDispatch();
 
     
-    const getConversations = () => {
+  const getConversations = () => {
         axiosChat.post('/getConversations', { address: user.address, userId: user._id, signature: user.signature })
             .then(res => dispatch(setFloatMessage({ conversations: res.data })))
             .catch(err => console.log(err.data));
