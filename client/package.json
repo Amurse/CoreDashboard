@@ -1,10 +1,13 @@
 {
   "name": "amurse",
-  "version": "1.0.47",
+  "version": "1.0.51",
   "private": true,
   "homepage": "https://amurse.com",
   "dependencies": {
-    "@amurse/chatwindow": "^0.0.4",
+    "@amurse/chat_sdk": "^1.0.12",
+    "@amurse/chatwindow": "^0.0.42",
+    "@amurse/connect_sdk": "^1.0.1",
+    "@amurse/signer_sdk": "^1.0.2",
     "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.7.2",
     "@sentry/react": "^6.18.0",

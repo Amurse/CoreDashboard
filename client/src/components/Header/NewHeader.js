@@ -32,11 +32,11 @@ const NewHeader = ({boxShadow}) => {
           <ImageImporter redirectLink={'/'} mobileView={mobileView} enableHover></ImageImporter>
         </div>
         <div className='flex flex1 justify-end whiteBackground'>
-          <div className='flex justifySpaced alignCenter width100' style={{ maxWidth: mobileView ? '200px' : '400px' }}>
+          <div className='flex justifySpaced alignCenter width100' style={{ maxWidth: mobileView ? '100px' : '400px' }}>
+            {!mobileView && user.address && user.admin && <div className='flex alignCenter bold textMed hover padHorMed' onClick={()=>history.push('/adminPanel')}>Admin</div>}
             {!mobileView && user.address && <div className='flex alignCenter bold textMed hover padHorMed' onClick={()=>history.push('/business')}>API</div>}
-            {<div className='flex alignCenter bold textMed hover padHorMed' onClick={()=>openInNewTab(externalLinks.docs)}>Docs</div>}
-            {!mobileView && <div className='flex alignCenter bold textMed hover padHorMed'><ConnectWallet text={'Demo'}></ConnectWallet></div>}
-            <Button onClick={()=>openInNewTab(externalLinks.stripe)} type='primary' className='borderRadius'>Pre-Order</Button>
+            {!mobileView && <div className='flex alignCenter bold textMed hover padHorMed'><ConnectWallet text={'Dashboard'}></ConnectWallet></div>}
+            <Button onClick={()=>openInNewTab(externalLinks.docs)} type='primary' className='borderRadius'>Integrate</Button>
           </div>  
         </div>
       </div>

@@ -6,11 +6,15 @@ import {BiArrowBack} from 'react-icons/bi';
 import {Input, Popover} from 'antd';
 import {SendOutlined, SmileOutlined} from '@ant-design/icons';
 import {selectUser} from '../../../redux/features/User/UserSlice';
-import axios from '../../../helpers/axios/axiosChat';
 import {pusher} from '../../../pusher/features/PusherChat';
 import FloatMessageArea from './FloatMessageArea';
 import {appMessage} from '../../../helpers/functions/general';
 import Picker from 'emoji-picker-react';
+import { getMessages, enableDev, createMessage } from '@amurse/chat_sdk';
+
+// enable dev mode if dev env
+process.env.NODE_ENV !== 'production' && enableDev();
+
 
 const MessagePage = () => {
   const dispatch = useDispatch();
@@ -18,14 +22,14 @@ const MessagePage = () => {
   const user = useSelector(selectUser);
   const floatMessage = useSelector(selectMessages);
 
-  const getMessages = async () => {
-    const messages = (await axios.post('/getMessages', {convoId: floatMessage.convo._id})).data;
+  const fetchMessages = async () => {
+    const messages = await getMessages({ convoId: floatMessage.convo._id });
     dispatch(setFloatMessage({messages: messages}));
   };
 
   // EXISTING MESSAGES
   useEffect(() => {
-    getMessages();
+    fetchMessages();
 
     return () => dispatch(setFloatMessage({ messages: [], conversation: {} }));
     // eslint-disable-next-line
@@ -63,11 +67,12 @@ const MessagePage = () => {
 
   const submitMessage = async () => {
     if (!message) return appMessage('No Content');
-    await axios.post('/createMessage', {
+    let messageCre  = await createMessage({
       address: user.address, text: message,
       convoId: floatMessage.convo._id,
-      convoIndex: floatMessage.convo.index,
-    });
+      convoIndex: floatMessage.convo.index || 0,
+    }, (err) => {console.log(err)});
+    console.log('messsage creted: ', messageCre)
     setMessage('');
   };
 
@@ -90,7 +95,7 @@ const MessagePage = () => {
     </div>
   )
 
-  const createMessage = () => {
+  const MessageInput = () => {
     return (
       <div className='floatCreateMessage'>
         <Input
@@ -109,7 +114,7 @@ const MessagePage = () => {
     <div className='floatMessagePage flex flexCol'>
       {header()}
       <FloatMessageArea/>
-      {createMessage()}
+      {MessageInput()}
     </div>
 
   );

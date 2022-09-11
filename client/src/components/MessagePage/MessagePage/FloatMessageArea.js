@@ -40,18 +40,21 @@ const FloatMessageArea = () => {
         }
       let date = new Date(message.created_at).toLocaleTimeString('en-us', {hour: "2-digit", minute: '2-digit'});
         
-        let previousMessageDate;
-        if (index > 0) {
-          previousMessageDate = new Date(messages[index - 1].created_at);
-        }
-      let thisMessageDate = new Date(message.created_at);
-
-      if (previousMessageDate) previousMessageDate = previousMessageDate.toDateString();
-        thisMessageDate = thisMessageDate.toDateString();
+      let previousMessageDate;
+      let previousMessageSubject;
+      if (index > 0) {
+        previousMessageDate = new Date(messages[index - 1].created_at)
+          .toDateString();
+        previousMessageSubject = messages[index - 1].subject;
+      }
+      const thisMessageDate = message.created_at && new Date(message.created_at).toDateString();
+      const thisMessageSubject = message.subject;
 
         return (
             <div className="messageContainer"  key={index}>
                 {previousMessageDate !== thisMessageDate && <div className="dateDisplay unselectable">{thisMessageDate }</div>}
+                {thisMessageSubject !== previousMessageSubject && <div className='amurse_blue amurse_width100 amurse_flex amurse_justifyCenter amurse_bold amurse_textCenter'>{thisMessageSubject || 'Messages'}</div>}
+
                 <div className="message">
                     <div className="messageAvatar">
                         <Avatar src={messageAvatar && ENDPOINT_MEDIA_DOWNLOAD+"t_"+messageAvatar} icon={<UserOutlined/>}/>

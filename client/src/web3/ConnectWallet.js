@@ -39,7 +39,7 @@ export const connectSilentlyMetamask = async (setUserData, errorHandler) => {
   return null;
 }
 
-const ConnectWallet = ({button, redirect, text}) => {
+const ConnectWallet = ({button, redirect, text, buttonSize, buttonStyle}) => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -93,7 +93,7 @@ const ConnectWallet = ({button, redirect, text}) => {
     <div>
       {!button && !user.address && <span onClick={connectMetamask}>{ text }</span>}
        
-      {button && !user.address && <Button className='borderRadius' type='primary' onClick={connectMetamask}>{text}</Button>}
+      {button && !user.address && <Button style={buttonStyle} className='borderRadius' type='primary' size={ buttonSize || 'middle'} onClick={connectMetamask}>{text}</Button>}
         {user.address && <Button type='primary' className='borderRadius' onClick={()=>disconnectUser(redirect, dispatch, logoutUser)}>{formattedWalletAddress(user.address)}</Button>}
     </div>
   )

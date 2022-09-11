@@ -1,13 +1,16 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectUser} from '../../redux/features/User/UserSlice';
-import axiosChat from '../../helpers/axios/axiosChat';
 import './MessagingPage.css';
 import {setAppStatus} from '../../redux/features/App/AppStatus';
 import {selectMessages, setFloatMessage} from '../../redux/features/Messages/Messages';
 import MessagePage from './MessagePage/MessagePage';
 import LeftPanel from './LeftPanel';
-// import MessageArea from './MessageArea';
+import { getConversations, enableDev } from '@amurse/chat_sdk'
+
+//enable dev mode for chat sdk
+process.env.NODE_ENV !== 'production' && enableDev();
+
 const MessagingPage = () => {
 
     const user = useSelector(selectUser);
@@ -15,15 +18,14 @@ const MessagingPage = () => {
     const dispatch = useDispatch();
 
     
-  const getConversations = () => {
-        axiosChat.post('/getConversations', { address: user.address, userId: user._id, signature: user.signature })
-            .then(res => dispatch(setFloatMessage({ conversations: res.data })))
-            .catch(err => console.log(err.data));
-    }
+  const fetchConversations = async () => {
+    let convos = await getConversations( { address: user.address, signature: user.signature }, (err)=>{console.log(err)})
+    dispatch(setFloatMessage({ conversations: convos }));
+  }
 
     useEffect(() => {
         dispatch(setAppStatus({ leftPanelActive: false, mobileDrawerActive: false }));
-      user && user.address && getConversations();
+      user && user.address && fetchConversations();
       // eslint-disable-next-line
     }, [user.address]);
 

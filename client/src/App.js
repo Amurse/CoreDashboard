@@ -5,29 +5,22 @@ import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from './helpers/axios/axiosUser'
 import { selectUser, selectUserLoaded, setUserData } from './redux/features/User/UserSlice';
-
 import LoadingPage from './components/ContentLoader/LoadingPage';
-
-// import Terms from './components/PolicyPages/Terms';
-// import Cookies from './components/PolicyPages/Cookies';
 import NotFound from './helpers/pages/NotFound';
 import { setScreenSize } from './redux/features/App/AppStatus'
 import { Grid } from 'antd';
-import LandingPage from './components/LandingPage/LandingPage';
 import Homepage from './components/Homepage/Homepage';
 import Pusher from './pusher/features/PusherChat';
-import Web3 from 'web3'
 import SessionFull from './helpers/pages/SessionFull';
-import axiosChat from './helpers/axios/axiosChat'
 import BusinessIndex from './business/BusinessIndex';
-import axiosAccess from './helpers/axios/axiosAccess';
 import { appError } from './helpers/functions/general'
 import { connectSilentlyMetamask } from './web3/ConnectWallet';
 import NewLandingPage from './components/LandingPage/NewLandingPage';
 import PaymentThanks from './components/PaymentThanks/PaymentThanks';
 import AdminPanel from './admin/AdminPanel';
-import { signMessageMetamask } from './web3/SignMessage';
 import AdminRoute from './components/Helpers/AdminRoute';
+import TokenPage from './components/LandingPage/TokenPage';
+import '@amurse/chatwindow/dist/styles.css';
 
 const { useBreakpoint } = Grid;
 
@@ -59,12 +52,6 @@ function App() {
   const fullSessions = () => {
     if (location.path !== '/sessionsFull') history.push('/sessionsFull');
   };
-  
-  const wakeUpNeededAPIs = () => {
-    axiosChat.get('/wakeUp');
-    axiosAccess.get('/wakeUp');
-  }
-
 
   let validate = async () => {
     // wakeUpNeededAPIs();
@@ -104,6 +91,7 @@ function App() {
       {userLoaded && <Pusher />}
       {userLoaded &&
         <Switch>
+          <Route path='/inquiry'><TokenPage/></Route>
           <AdminRoute path="/adminPanel" component={AdminPanel}></AdminRoute>
           <Route path="/paymentConfirm"><PaymentThanks/></Route>
           <Route path="/sessionsFull"><SessionFull /></Route>
