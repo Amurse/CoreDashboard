@@ -10,9 +10,9 @@ import girlThink from '../../images/test/girlthink.png'
 import { useSelector } from 'react-redux';
 import { selectAppStatus } from '../../redux/features/App/AppStatus';
 import { Button } from 'antd';
-import { BiGroup, BiNetworkChart, BiSupport } from 'react-icons/bi';
-import { Bounce, Fade, Flip, Slide, Zoom } from 'react-reveal';
-import { BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { BiNetworkChart, BiSupport } from 'react-icons/bi';
+import { Fade, Slide, Zoom } from 'react-reveal';
+import { BsTwitter } from 'react-icons/bs';
 import { externalLinks, openInNewTab } from '../../helpers/functions/general';
 import { useHistory } from 'react-router-dom';
 

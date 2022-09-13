@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectUser, setUserData } from '../../redux/features/User/UserSlice'
 import axiosAccess from '../../helpers/axios/axiosAccess';
 import { appError, verifyUser } from '../../helpers/functions/general'
-import { signMessageMetamask } from '../../web3/SignMessage';
 
 const TokenGenrator = () => {
   const user = useSelector(selectUser);

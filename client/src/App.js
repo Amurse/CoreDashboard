@@ -21,6 +21,7 @@ import AdminPanel from './admin/AdminPanel';
 import AdminRoute from './components/Helpers/AdminRoute';
 import TokenPage from './components/LandingPage/TokenPage';
 import '@amurse/chatwindow/dist/styles.css';
+import { initializeChatSDK } from '@amurse/chat_sdk'
 
 const { useBreakpoint } = Grid;
 
@@ -66,7 +67,9 @@ function App() {
         dispatch(setUserData({found: false, loaded: true}));
       }
       else if (res && res.data) {
-        dispatch(setUserData({...res.data, loaded: true}))
+        initializeChatSDK({accessToken: process.env.REACT_APP_AMURSE_ACCESS_TOKEN, dev: process.env.NODE_ENV === 'development'})
+        dispatch(setUserData({ ...res.data, loaded: true }));
+       
       };
       
       }).catch(err => console.log(err));

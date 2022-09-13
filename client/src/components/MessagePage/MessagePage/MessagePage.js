@@ -10,10 +10,8 @@ import {pusher} from '../../../pusher/features/PusherChat';
 import FloatMessageArea from './FloatMessageArea';
 import {appMessage} from '../../../helpers/functions/general';
 import Picker from 'emoji-picker-react';
-import { getMessages, enableDev, createMessage } from '@amurse/chat_sdk';
+import { getMessages, createMessage } from '@amurse/chat_sdk';
 
-// enable dev mode if dev env
-process.env.NODE_ENV !== 'production' && enableDev();
 
 
 const MessagePage = () => {

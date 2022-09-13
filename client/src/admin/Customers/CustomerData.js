@@ -7,8 +7,6 @@ import axiosUser from '../../helpers/axios/axiosUser';
 import { appError, verifyUser } from '../../helpers/functions/general';
 import { selectUser, setUserData } from '../../redux/features/User/UserSlice';
 import { validateAddressEthereum } from '../../web3/ConnectWallet';
-import { signMessageMetamask } from '../../web3/SignMessage';
-
 
 const Columns = [
   { title: 'Project', dataIndex: 'projectName', key: 'project' },
@@ -53,6 +51,7 @@ const CustomerData = () => {
 
   useEffect(() => {
     user._id && !user.signature && verifyUser(dispatch, setUserData, user, user.address);
+    // eslint-disable-next-line
   }, [user._id])
 
 
@@ -60,8 +59,8 @@ const CustomerData = () => {
     if (user.address && user.signature) {
       getTotalTokens();
       getCustomers();
-
-    } 
+    }
+    // eslint-disable-next-line
   }, [user.address, user.signature]);
 
  

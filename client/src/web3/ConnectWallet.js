@@ -7,6 +7,7 @@ import Web3 from 'web3';
 import { appError, appMessage, disconnectUser, formattedWalletAddress } from '../helpers/functions/general';
 import { Button } from 'antd';
 import { signMessageMetamask } from './SignMessage';
+import { initializeChatSDK } from '@amurse/chat_sdk';
 
 
 
@@ -55,7 +56,8 @@ const ConnectWallet = ({button, redirect, text, buttonSize, buttonStyle}) => {
       if (response.data._id !== user._id) {
         // dispatch(clearSpaceData());
       }
-      dispatch(setUserData({...response.data, signature}));
+      initializeChatSDK({ accessToken: process.env.REACT_APP_AMURSE_ACCESS_TOKEN, walletSignature: signature, dev: process.env.NODE_ENV === 'development'});
+      dispatch(setUserData({ ...response.data, signature }));
       redirect && history.push(redirect);
     }).catch((err) => {
       appError('Something went wrong');

@@ -2,7 +2,7 @@ import React from 'react'
 import waitlist from '@zootools/waitlist-js'
 import { Button } from 'antd';
 import ImageImporter from '../Helpers/ImageImporter';
-import NewHeader from '../Header/NewHeader';
+
 const PaymentThanks = () => {
 
   const clickPopup = (event) => {

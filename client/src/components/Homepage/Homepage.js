@@ -1,9 +1,6 @@
 import React, {useEffect} from 'react';
-import Header from '../Header/Header';
 import {useDispatch, useSelector} from 'react-redux';
-
 import './Homepage.css';
-
 import {useLocation, useParams} from 'react-router-dom';
 import {selectUserExists, setUserData} from '../../redux/features/User/UserSlice';
 

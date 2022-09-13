@@ -18,6 +18,7 @@ const AdminRoute = ({ component: Component, ...rest }) => {
 
   useEffect(() => {
     if (user.address) isAdmin();
+    // eslint-disable-next-line
   }, [user.address, user.admin])
 
 

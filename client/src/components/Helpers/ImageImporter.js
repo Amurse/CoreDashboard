@@ -26,7 +26,7 @@ const ImageImporter = (props) => {
 
   return (
     <div onClick={redirect} className={props.enableHover && 'hover'}>
-      <img src={src} style={styles(props)}></img>
+      <img alt="" src={src} style={styles(props)}></img>
     </div>
   )
 }

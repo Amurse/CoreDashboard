@@ -6,10 +6,9 @@ import {setAppStatus} from '../../redux/features/App/AppStatus';
 import {selectMessages, setFloatMessage} from '../../redux/features/Messages/Messages';
 import MessagePage from './MessagePage/MessagePage';
 import LeftPanel from './LeftPanel';
-import { getConversations, enableDev } from '@amurse/chat_sdk'
+import { getConversations } from '@amurse/chat_sdk'
 
 //enable dev mode for chat sdk
-process.env.NODE_ENV !== 'production' && enableDev();
 
 const MessagingPage = () => {
 

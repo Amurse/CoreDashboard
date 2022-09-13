@@ -1,9 +1,8 @@
 import { Button } from 'antd';
 import React from 'react';
-import { BiMenu, BiPackage } from 'react-icons/bi';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { externalLinks, getStripeLink, openInNewTab } from '../../helpers/functions/general';
+import { externalLinks, openInNewTab } from '../../helpers/functions/general';
 import { selectAppStatus } from '../../redux/features/App/AppStatus';
 import { selectUser } from '../../redux/features/User/UserSlice';
 import ConnectWallet from '../../web3/ConnectWallet';

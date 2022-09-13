@@ -10,6 +10,7 @@ import peopleChat from '../../images/test/peoplechat.svg'
 import livecall from '../../images/test/livecall.svg'
 import ImageImporter from '../Helpers/ImageImporter';
 import { ChatWindow } from '@amurse/chatwindow';
+
 const TokenPage = () => {
   const appStatus = useSelector(selectAppStatus);
   const mobileView = appStatus.mobileView;
