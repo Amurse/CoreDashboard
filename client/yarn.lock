@@ -17,20 +17,33 @@
   dependencies:
     axios "^0.27.2"
 
-"@amurse/chat_sdk@^1.0.17":
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/@amurse/chat_sdk/-/chat_sdk-1.0.17.tgz#6f71ef8f804f11fac65457e7bc191f78f12d2488"
-  integrity sha512-BasgPbyhysWnnhcumuwiRouEmBNuGKYI5STaLziXCZ1SPAPTakWh4YwMV6Me0zuv8uR13KWoGE9lQEn0k4PXvQ==
+"@amurse/chat_sdk@^1.0.24":
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/@amurse/chat_sdk/-/chat_sdk-1.0.24.tgz#9d5b70e5fae6728301a582cf7abe1c68e2851987"
+  integrity sha512-URYnh0w8nSJjzrZYbXhYfHyYZ6YoL2JwcX+9XGl+PBZmK4Z6WY//QjCY0anCwjjze+tG9dd6vbZ/t/pNQEojIQ==
   dependencies:
     "@amurse/axios_sdk" "^1.0.1"
     axios "^0.27.2"
     web3 "^1.7.5"
 
-"@amurse/chatwindow@^0.0.42":
-  version "0.0.42"
-  resolved "https://registry.yarnpkg.com/@amurse/chatwindow/-/chatwindow-0.0.42.tgz#2d24faef52a7214258d8e03a02f016ddbe27770b"
-  integrity sha512-aN8strc7E+63pGAyCrKwiEFD48HDeEOtY63pkmAXXLhmP6OvijDqEeRH0+Gf3fJqvY2hMWRlZt9iF30VoI4tkQ==
+"@amurse/chat_sdk@^1.0.26":
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/@amurse/chat_sdk/-/chat_sdk-1.0.26.tgz#383be25521cb674e6000fb6958ae5d0a03de20df"
+  integrity sha512-3hyLqcRum6gNvND+KluLFRrr8XtFOr7u2vZUoWMGWi2D1BPJqRqwRw98WuC3i7eSeadZWKUg/dUwJbzY20fLQA==
   dependencies:
+    "@amurse/axios_sdk" "^1.0.1"
+    axios "^0.27.2"
+    web3 "^1.7.5"
+
+"@amurse/chatwindow@^0.0.48":
+  version "0.0.48"
+  resolved "https://registry.yarnpkg.com/@amurse/chatwindow/-/chatwindow-0.0.48.tgz#580f4efdb36262015946c2dfd263f09b4e25eec3"
+  integrity sha512-evFzAq/jJq6dWnxNkNCHhQcDN5vvbQ1dKsCmyWjWSutcmlQR7w6ZZhbsrwwmrXih5OGQ3HUb2XcTG7AOWsW14g==
+  dependencies:
+    "@amurse/axios_sdk" "^1.0.1"
+    "@amurse/chat_sdk" "^1.0.24"
+    "@amurse/connect_sdk" "^1.0.1"
+    "@amurse/signer_sdk" "^1.0.2"
     "@ant-design/icons" "^4.7.0"
     "@babel/runtime" "^7.18.9"
     antd "^4.18.8"

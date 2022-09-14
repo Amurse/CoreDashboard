@@ -7,7 +7,7 @@ import Web3 from 'web3';
 import { appError, appMessage, disconnectUser, formattedWalletAddress } from '../helpers/functions/general';
 import { Button } from 'antd';
 import { signMessageMetamask } from './SignMessage';
-import { initializeChatSDK } from '@amurse/chat_sdk';
+import { initializeChatSDK } from '../helpers/functions/chat';
 
 
 

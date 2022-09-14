@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { externalLinks, openInNewTab } from '../../helpers/functions/general';
 import { selectAppStatus } from '../../redux/features/App/AppStatus';
-import { selectUser } from '../../redux/features/User/UserSlice';
+import UserSlice, { selectUser } from '../../redux/features/User/UserSlice';
 import ConnectWallet from '../../web3/ConnectWallet';
 import NewHeader from '../Header/NewHeader';
 import peopleChat from '../../images/test/peoplechat.svg'
 import livecall from '../../images/test/livecall.svg'
 import ImageImporter from '../Helpers/ImageImporter';
-import { ChatWindow } from '@amurse/chatwindow';
+import  ChatWindow  from '@amurse/chatwindow';
 
 const TokenPage = () => {
   const appStatus = useSelector(selectAppStatus);
@@ -58,7 +58,7 @@ const TokenPage = () => {
             Just a couple of Canadian university students tryna make it in life. <span className='blue bold'>Oh btw, this is the ONLY way to get a token</span> 😎😊
           </div>
         </div>
-       {<ChatWindow receiverToken={process.env.REACT_APP_AMURSE_ACCESS_TOKEN} interCom={false} customAddress={customAddress} refresh={refreshChat} tag={'Amurse Inquiry'}/>}
+       {user.address && <ChatWindow receiverToken={process.env.REACT_APP_AMURSE_CHATWINDOW_TOKEN} interCom={false} customAddress={customAddress} refresh={refreshChat} tag={'Amurse Inquiry'}/>}
       </div>
     </div>
   )

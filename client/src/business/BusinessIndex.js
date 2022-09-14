@@ -41,7 +41,7 @@ const BusinessPage = () => {
 
         </div>
         
-        <ChatWindow receiverToken={process.env.REACT_APP_AMURSE_ACCESS_TOKEN} />
+        <ChatWindow receiverToken={process.env.REACT_APP_AMURSE_CHATWINDOW_TOKEN} />
       </div>
     </div>
   );

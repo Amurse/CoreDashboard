@@ -6,7 +6,7 @@ import {setAppStatus} from '../../redux/features/App/AppStatus';
 import {selectMessages, setFloatMessage} from '../../redux/features/Messages/Messages';
 import MessagePage from './MessagePage/MessagePage';
 import LeftPanel from './LeftPanel';
-import { getConversations } from '@amurse/chat_sdk'
+import { chatSDK } from '../../helpers/functions/chat';
 
 //enable dev mode for chat sdk
 
@@ -18,7 +18,7 @@ const MessagingPage = () => {
 
     
   const fetchConversations = async () => {
-    let convos = await getConversations( { address: user.address, signature: user.signature }, (err)=>{console.log(err)})
+    let convos = await chatSDK.getConversations( { address: user.address, signature: user.signature }, (err)=>{console.log(err)})
     dispatch(setFloatMessage({ conversations: convos }));
   }
 

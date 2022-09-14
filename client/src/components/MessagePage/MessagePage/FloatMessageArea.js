@@ -53,7 +53,7 @@ const FloatMessageArea = () => {
         return (
             <div className="messageContainer"  key={index}>
                 {previousMessageDate !== thisMessageDate && <div className="dateDisplay unselectable">{thisMessageDate }</div>}
-                {thisMessageSubject !== previousMessageSubject && <div className='amurse_blue amurse_width100 amurse_flex amurse_justifyCenter amurse_bold amurse_textCenter'>{thisMessageSubject || 'Messages'}</div>}
+                {thisMessageSubject !== previousMessageSubject && <div className='amurse_blue amurse_width100 amurse_flex amurse_justifyCenter amurse_bold amurse_textCenter'>{thisMessageSubject}</div>}
 
                 <div className="message">
                     <div className="messageAvatar">

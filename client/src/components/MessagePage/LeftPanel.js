@@ -4,10 +4,10 @@ import {Input} from 'antd';
 import {SearchOutlined} from '@ant-design/icons';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectUser} from '../../redux/features/User/UserSlice';
-import { getConversation } from '@amurse/chat_sdk';
 import Conversations from './Mainpage/Conversations';
 import { setFloatMessage } from '../../redux/features/Messages/Messages';
 import { appError } from '../../helpers/functions/general';
+import { chatSDK } from '../../helpers/functions/chat';
 
 
 const LeftPanel = () => {
@@ -18,7 +18,7 @@ const LeftPanel = () => {
   // const floatMessage = useSelector(selectMessages)
 
   const sendMessage = async () => {
-    let convo = await getConversation({ address: user.address, receiverAddress: address, signature: user.signature }, (err)=>{console.log(err)});
+    let convo = await chatSDK.getConversation({ address: user.address, receiverAddress: address, signature: user.signature }, (err)=>{console.log(err)});
     if (convo) dispatch(setFloatMessage({ address: address, convo: {...convo}, page: 'messagepage', open: true }))
     else appError('Something went wrong')
     setAddress('');

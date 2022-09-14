@@ -10,7 +10,7 @@ import {pusher} from '../../../pusher/features/PusherChat';
 import FloatMessageArea from './FloatMessageArea';
 import {appMessage} from '../../../helpers/functions/general';
 import Picker from 'emoji-picker-react';
-import { getMessages, createMessage } from '@amurse/chat_sdk';
+import { chatSDK } from '../../../helpers/functions/chat';
 
 
 
@@ -21,7 +21,7 @@ const MessagePage = () => {
   const floatMessage = useSelector(selectMessages);
 
   const fetchMessages = async () => {
-    const messages = await getMessages({ convoId: floatMessage.convo._id });
+    const messages = await chatSDK.getMessages({ convoId: floatMessage.convo._id });
     dispatch(setFloatMessage({messages: messages}));
   };
 
@@ -65,7 +65,7 @@ const MessagePage = () => {
 
   const submitMessage = async () => {
     if (!message) return appMessage('No Content');
-    let messageCre  = await createMessage({
+    let messageCre  = await chatSDK.createMessage({
       address: user.address, text: message,
       convoId: floatMessage.convo._id,
       convoIndex: floatMessage.convo.index || 0,

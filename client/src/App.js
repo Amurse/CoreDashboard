@@ -21,7 +21,8 @@ import AdminPanel from './admin/AdminPanel';
 import AdminRoute from './components/Helpers/AdminRoute';
 import TokenPage from './components/LandingPage/TokenPage';
 import '@amurse/chatwindow/dist/styles.css';
-import { initializeChatSDK } from '@amurse/chat_sdk'
+import { initializeChatSDK } from './helpers/functions/chat';
+
 
 const { useBreakpoint } = Grid;
 
