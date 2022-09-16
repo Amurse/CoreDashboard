@@ -5,7 +5,7 @@
   "homepage": "https://amurse.com",
   "dependencies": {
     "@amurse/chat_sdk": "^1.0.26",
-    "@amurse/chatwindow": "^0.0.48",
+    "@amurse/chatwindow": "^0.0.55",
     "@amurse/connect_sdk": "^1.0.1",
     "@amurse/signer_sdk": "^1.0.2",
     "@ant-design/icons": "^4.7.0",

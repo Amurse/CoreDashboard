@@ -35,14 +35,14 @@
     axios "^0.27.2"
     web3 "^1.7.5"
 
-"@amurse/chatwindow@^0.0.48":
-  version "0.0.48"
-  resolved "https://registry.yarnpkg.com/@amurse/chatwindow/-/chatwindow-0.0.48.tgz#580f4efdb36262015946c2dfd263f09b4e25eec3"
-  integrity sha512-evFzAq/jJq6dWnxNkNCHhQcDN5vvbQ1dKsCmyWjWSutcmlQR7w6ZZhbsrwwmrXih5OGQ3HUb2XcTG7AOWsW14g==
+"@amurse/chatwindow@^0.0.55":
+  version "0.0.55"
+  resolved "https://registry.yarnpkg.com/@amurse/chatwindow/-/chatwindow-0.0.55.tgz#606c182c5714479420e2af79502ba849eb68da46"
+  integrity sha512-UD3LiNQB4wuPZFibwh3JGjxeNsHTd6CFJjq6oOc+BGSLx/akvU9VYS0EYAKQAzKLyfiUUbpDR2Kik8U4EWG2/Q==
   dependencies:
     "@amurse/axios_sdk" "^1.0.1"
     "@amurse/chat_sdk" "^1.0.24"
-    "@amurse/connect_sdk" "^1.0.1"
+    "@amurse/connect_sdk" "^1.0.6"
     "@amurse/signer_sdk" "^1.0.2"
     "@ant-design/icons" "^4.7.0"
     "@babel/runtime" "^7.18.9"
@@ -58,6 +58,13 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@amurse/connect_sdk/-/connect_sdk-1.0.1.tgz#64de0a895145a97cbd281fee696b71a35ca24ba5"
   integrity sha512-2Ao323+G5ECpyr2zgiSuXlcfszzXr3iMSOat95XfM4ftCpfbj08StP2jEi9DVBzfTMq9hPB0bJD/SL29iihCXQ==
+  dependencies:
+    web3 "^1.7.5"
+
+"@amurse/connect_sdk@^1.0.6":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@amurse/connect_sdk/-/connect_sdk-1.0.7.tgz#41f1652ea21ea4575f0c5b77c6f03a59700b8c38"
+  integrity sha512-fw08eV1SpGAKt7F0GMLqMVrBuQdTyMgpmsWX8sj6TJmLsOMDUHdODFSTaUYxB+2Oy6Ty+ds9NIHPmJpTc2hk/Q==
   dependencies:
     web3 "^1.7.5"
 
