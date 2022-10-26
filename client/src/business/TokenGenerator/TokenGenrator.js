@@ -34,7 +34,7 @@ const TokenGenrator = () => {
 
   const createAPIToken = () => {
     if (token) return;
-    axiosAccess.post('/createToken', { address: user.address })
+    axiosAccess.post('/createToken', { address: user.address, signature: user.signature })
       .then(res => {
         const token = res.data;
         setToken(token.token)

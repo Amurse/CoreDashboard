@@ -19,7 +19,6 @@ import NewLandingPage from './components/LandingPage/NewLandingPage';
 import PaymentThanks from './components/PaymentThanks/PaymentThanks';
 import AdminPanel from './admin/AdminPanel';
 import AdminRoute from './components/Helpers/AdminRoute';
-import TokenPage from './components/LandingPage/TokenPage';
 import '@amurse/chatwindow/dist/styles.css';
 import { initializeChatSDK } from './helpers/functions/chat';
 
@@ -95,7 +94,6 @@ function App() {
       {userLoaded && <Pusher />}
       {userLoaded &&
         <Switch>
-          <Route path='/inquiry'><TokenPage/></Route>
           <AdminRoute path="/adminPanel" component={AdminPanel}></AdminRoute>
           <Route path="/paymentConfirm"><PaymentThanks/></Route>
           <Route path="/sessionsFull"><SessionFull /></Route>

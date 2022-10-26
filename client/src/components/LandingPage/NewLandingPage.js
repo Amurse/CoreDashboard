@@ -15,12 +15,19 @@ import { Fade, Slide, Zoom } from 'react-reveal';
 import { BsTwitter } from 'react-icons/bs';
 import { externalLinks, openInNewTab } from '../../helpers/functions/general';
 import { useHistory } from 'react-router-dom';
+import waitlistPanda from '@zootools/waitlist-js';
 
 const NewLandingPage = () => {
   const appStatus = useSelector(selectAppStatus);
   const mobileView = appStatus.mobileView;
   const history = useHistory();
   const smallScreen = appStatus.smallScreen;
+
+  const clickPopup = (event) => {
+    event.preventDefault();
+    // Pass your waitlist ID
+    waitlistPanda.openPopup("cBgEp90ue80FtvmazUkg")
+  } 
 
   const Section1 = () => (
     <div className='flex flexWrapReverse width100 justifyEvenly marVerMed'
@@ -36,7 +43,7 @@ const NewLandingPage = () => {
         <div className='flex flexWrap justifyCenter width100'>
 
           <Button type='primary' onClick={()=>openInNewTab(externalLinks.docs)} className='marVerMed margin16 borderRadius yellowThemeButton' size='large' style={{ width: '200px'}}>Integrate</Button>
-          <Button type='primary'  onClick={()=>history.push('/inquiry')} className='marVerMed margin16 borderRadius' size='large' style={{ width: '200px'}}>Get Token</Button>
+          <Button type='primary'  onClick={clickPopup} className='marVerMed margin16 borderRadius' size='large' style={{ width: '200px'}}>Get Access</Button>
         </div>
        
         
@@ -141,8 +148,8 @@ const NewLandingPage = () => {
           
           <span className='white textBig marVerSmall'>Wallet-to-Wallet Messaging API</span>
           
-            <Button type='default' onClick={()=>openInNewTab(externalLinks.docs)} size='large' className='marVerMed yellowThemeButton' style={{ width: '300px' }}>Integrate</Button>
-            <Button onClick={()=>history.push('/inquiry')} type='default' size='large' className='marVerMed' style={{width: '300px'}}>Get Token</Button>
+            <Button type='default' onClick={()=>openInNewTab(externalLinks.docs)} size='large' className='marVerMed borderRadius yellowThemeButton' style={{ width: '300px' }}>Integrate</Button>
+            <Button onClick={clickPopup} type='default' size='large' className='marVerMed borderRadius' style={{width: '300px'}}>Get Access</Button>
        
          
           <div className='flex justifyCenter textBig marVerMed'>
