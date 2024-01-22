@@ -121,3 +121,4 @@ app.yaml
 cron.yaml
 dispatch.yaml
 gcloudService/
+.env.development.local
