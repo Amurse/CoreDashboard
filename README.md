@@ -115,3 +115,31 @@ let success = await chatSDK.newMessage({
     convoId: 'conversation_id',
 });
 ```
+
+# How to use
+The repository is follows a monolith structure. There are 2 sub-sections to this project; the server side and the client side.
+
+The client side code uses React.JS and communicates with the server using axios. For development, the client side code can be run as a standalone entity for faster development. For production, the react code is built and put into a build folder. The static code inside in the build folder is served directed through the Express.JS server.
+
+## Development
+
+### 1. Configure .env files
+The sample .env files are provided in the code. Please get your own keys for the respective services and insert them in the .env files
+
+### 2. Build and run the client
+```
+// from the project root directory
+cd client
+
+// build the code
+yarn build
+
+// run the code
+yarn start
+```
+
+After configuring the .env file in the client code, run `yarn build` to build the client side code into a static directory. Run the client side using `yarn start`. The server is accessible on port 3000 of localhost.
+
+### 3. Run the server
+You can run the server with `node` or `nodemon` using the command `nodemon index.js`. By default, the Express.js will serve the client side files from the build folder from step 2. The server runs of port 5000 of localhost. This is a reflection of what will be seen in productiion, however, for local development of the the frontend, it is sufficient to use port 3000.
+
