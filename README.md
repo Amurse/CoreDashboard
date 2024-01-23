@@ -141,5 +141,5 @@ yarn start
 After configuring the .env file in the client code, run `yarn build` to build the client side code into a static directory. Run the client side using `yarn start`. The server is accessible on port 3000 of localhost.
 
 ### 3. Run the server
-You can run the server with `node` or `nodemon` using the command `nodemon index.js`. By default, the Express.js will serve the client side files from the build folder from step 2. The server runs of port 5000 of localhost. This is a reflection of what will be seen in productiion, however, for local development of the the frontend, it is sufficient to use port 3000.
+You can run the server with `node` or `nodemon` using the command `nodemon index.js`. By default, the Express.js will serve the client side files from the build folder from step 2. The server runs on port 5000 of localhost. This is a reflection of what will be seen in productiion, however, for local development of the the frontend, it is sufficient to use port 3000.
 
